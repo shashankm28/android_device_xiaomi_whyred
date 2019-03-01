@@ -16,6 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/xiaomi/whyred/device.mk)
 
+## Device identifier. This must come after all inclusions
 PRODUCT_NAME := full_whyred
 PRODUCT_DEVICE := whyred
 PRODUCT_BRAND := Xiaomi
