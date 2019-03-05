@@ -31,7 +31,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 $(call inherit-product, vendor/xiaomi/whyred/whyred-vendor.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_shamu
+PRODUCT_NAME := lineage_whyred
 PRODUCT_DEVICE := whyred
 PRODUCT_BRAND := xiaomi
 PRODUCT_MODEL := Redmi Note 5 Pro
