@@ -128,9 +128,9 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp
 BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
 
-include device/google/crosshatch-sepolicy/crosshatch-sepolicy.mk
+include device/xiaomi/whyred-sepolicy/whyred-sepolicy.mk
 
-TARGET_FS_CONFIG_GEN := device/google/crosshatch/config.fs
+TARGET_FS_CONFIG_GEN := device/xiaomi/whyred/config.fs
 
 QCOM_BOARD_PLATFORMS += sdm845
 BOARD_HAVE_BLUETOOTH_QCOM := true
