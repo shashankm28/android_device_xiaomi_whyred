@@ -16,7 +16,6 @@
 
 TARGET_BOARD_PLATFORM := sdm660
 TARGET_BOARD_INFO_FILE := device/xiaomi/whyred/board-info.txt
-#USES_DEVICE_GOOGLE_B1C1 := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno509
 TARGET_BOARD_SUFFIX := _64
 
@@ -40,6 +39,7 @@ TARGET_BOARD_COMMON_PATH := device/xiaomi/whyred/sdm660
 
 #BUILD_BROKEN_DUP_RULES := true
 
+#BOARD KERNEL FLAGS
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on,earlycon=msm_serial_dm,0xc170000
 #BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
 #BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
@@ -47,18 +47,10 @@ BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 pri
 #BOARD_KERNEL_CMDLINE += cgroup.memory=nokmem
 #BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 #BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7
-
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
-##ifeq ($(filter-out crosshatch_kasan blueline_kasan, $(TARGET_PRODUCT)),)
-#BOARD_KERNEL_OFFSET      := 0x80000
-#BOARD_KERNEL_TAGS_OFFSET := 0x02500000
-#BOARD_RAMDISK_OFFSET     := 0x02700000
-#BOARD_MKBOOTIMG_ARGS     := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-#else
 BOARD_KERNEL_TAGS_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET     := 0x01000000
-#endif
 
 #BOARD_BOOT_HEADER_VERSION := 1
 #BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
@@ -132,7 +124,7 @@ include device/xiaomi/whyred-sepolicy/whyred-sepolicy.mk
 
 TARGET_FS_CONFIG_GEN := device/xiaomi/whyred/config.fs
 
-QCOM_BOARD_PLATFORMS += sdm845
+QCOM_BOARD_PLATFORMS += sdm660
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAVE_QCOM_FM := false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := build/make/target/board/mainline_arm64/bluetooth
@@ -217,7 +209,7 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := device/google/crosshatch/framework_manifest.xm
 
 # Userdebug only Vendor Interface Manifest
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-DEVICE_MANIFEST_FILE += device/google/crosshatch/manifest_userdebug.xml
+DEVICE_MANIFEST_FILE += device/xiaomi/whyred/manifest_userdebug.xml
 endif
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
@@ -227,31 +219,31 @@ TARGET_USES_MKE2FS := true
 # Kernel modules
 ifeq (,$(filter-out blueline_gcc crosshatch_gcc, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/gcc/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/gcc/*.ko)
 else ifeq (,$(filter-out blueline_kasan crosshatch_kasan, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/kasan/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/kasan/*.ko)
 else ifeq (,$(filter-out blueline_kcfi crosshatch_kcfi, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/kcfi/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/kcfi/*.ko)
 else ifeq (,$(filter-out blueline_kernel_debug_memory crosshatch_kernel_debug_memory, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/debug_memory/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/debug_memory/*.ko)
 else ifeq (,$(filter-out blueline_kernel_debug_locking crosshatch_kernel_debug_locking, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/debug_locking/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/debug_locking/*.ko)
 else ifeq (,$(filter-out blueline_kernel_debug_hang crosshatch_kernel_debug_hang, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/debug_hang/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/debug_hang/*.ko)
 else ifeq (,$(filter-out blueline_kernel_debug_api crosshatch_kernel_debug_api, $(TARGET_PRODUCT)))
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/debug_api/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/debug_api/*.ko)
 else
 BOARD_VENDOR_KERNEL_MODULES += \
-    $(wildcard device/google/crosshatch-kernel/*.ko)
+    $(wildcard device/xiaomi/whyred-kernel/*.ko)
 endif
 
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b1c1-setup.sh
 
--include vendor/google_devices/crosshatch/proprietary/BoardConfigVendor.mk
+-include vendor/xiaomi/whyred/proprietary/BoardConfigVendor.mk
