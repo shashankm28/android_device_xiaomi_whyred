@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# Use the non-open-source parts, if they're present
--include vendor/xiaomi/whyred/BoardConfigVendor.mk
-
 #Path where the device tree is stored
 DEVICE_PATH := device/xiaomi/whyred
 
@@ -31,7 +28,7 @@ TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_2ND_CPU_VARIANT := cortex-a73
 
 TARGET_BOARD_PLATFORM := sdm660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno509
@@ -39,24 +36,34 @@ TARGET_BOARD_SUFFIX := _64
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
+TARGET_USES_64_BIT_BINDER := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
 TARGET_NO_BOOTLOADER := true
 
 # Encryption support
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := true
 
 # Boot image
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 and$
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1
+BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=1 androidboot.configfs=true
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 
 # Kernel
-#TARGET_KERNEL_SOURCE := kernel/xiaomi/whyred
+#TARGET_KERNEL_SOURCE := kernel/xiaomi/whyred     (Uncomment if building from kernel source)
 #TARGET_KERNEL_CONFIG := whyred-perf_defconfig
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/Image.gz-dtb
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
@@ -76,7 +83,6 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 2147483648
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -87,3 +93,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2160
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+# Use the non-open-source parts, if they're present
+-include vendor/xiaomi/whyred/BoardConfigVendor.mk
