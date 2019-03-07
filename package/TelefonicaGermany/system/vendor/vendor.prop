@@ -1,0 +1,28 @@
+#
+#Copyright (c) 2015 Qualcomm Technologies, Inc.
+#All Rights Reserved.
+#Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# ADDITIONAL_FEATURE_PROPERTIES FOR TelefonicaGermany SPEC
+#
+####################################################
+#Set the current spec as TelefonicaGermany#
+persist.env.spec=TelefonicaGermany
+
+#set system locale#
+persist.sys.locale=de-DE
+
+#set product model#
+ro.product.model=android-tef-de
+
+#set system timezone#
+persist.sys.timezone=Europe/Berlin
+
+#Set the SIM model for DSDS. ssss - Single model, dsds - Dual model.#
+persist.radio.multisim.config=ssss
+
+# Set Network mode option #
+ro.telephony.default_network=9
+
+# Default for Settings.Global.DATA_ROAMING
+ro.com.android.dataroaming=false

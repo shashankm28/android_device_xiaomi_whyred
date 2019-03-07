@@ -1,0 +1,100 @@
+[ParameterSpecification Version=1.1 Encoding=cp936]
+# Signature query string like 800_enu_gen_car_f16 or enu*f16. The list of installed signatures is variable. Use --help for most up to date list. Currently installed: {acmod5_4000_enu_gen_car_f16_v2_0_0, acmod5_4000_mnc_gen_car_f16_v2_0_0, acmod5_4000_mnc_gen_car_f16_v1_0_0, acmod4_900_enu_gen_car_f16_v2_0_0} ; default=acmod5_4000_enu_gen_car_f16_v2_0_0
+modelSpec=acmod6_6000_mnc_xatx_mob_f16_v1_0_0
+
+# input file
+#modelFilepath=
+
+# ';' separated list of input files
+grammarFilepaths=phrasespotter_grammar.bnf
+
+# ';' separated list of input files
+#xlfInFilepaths=
+
+# one of {utf-8, utf-16} ; default=utf-8
+grammarEncoding=utf-8
+
+# ';' separated list of output files
+contextBufferFilepaths=phrasespotter_grammar.fcf
+
+# ';' separated list of output files
+#xlfOutFilepaths=
+
+# output file
+#mergedXlfOutFilepath=
+
+# one of {STRING_AND_USERID_TABLE, STRING_AND_USERID_TABLE_UNCOMPRESSED, STRING_AND_USERID_TABLE_COMPRESSED, STRING_TABLE, STRING_TABLE_UNCOMPRESSED, STRING_TABLE_COMPRESSED, USERID_TABLE, USERID_TABLE_UNCOMPRESSED, USERID_TABLE_COMPRESSED, USERID_LABELS} ; default=STRING_AND_USERID_TABLE
+storageOption=STRING_AND_USERID_TABLE
+
+# one of {FORWARD, BACKWARD} ; default=FORWARD
+decodingStrategy=FORWARD
+
+# integer min=1 max=1000
+#maxnbest=
+
+# integer min=1 max=1000
+#maxnbestSecondpass=
+
+# integer min=0 max=10000 ; default=0
+ctxTsilence=0
+
+# integer min=0 max=5000 ; default=0
+ctxTsilenceFx=0
+
+# true or false ; default=false
+ctxTAnySpeech=false
+
+# integer min=100 max=50000
+accuracy=10000
+
+# integer min=0 max=10000
+#initbeamwidth=
+
+# integer min=0 max=10000
+#igLowconf=
+
+# integer min=0 max=10000
+#igHighconf=
+
+# integer min=0 max=10000
+#gateTagConf=
+
+# integer min=0 max=10000
+#gateWordConf=
+
+# true or false ; default=false
+dumpParameters=false
+
+# true or false ; default=false
+allowShortcut=false
+
+# true or false ; default=false
+useclc=true
+
+# The list of installed signatures is variable. Use --help for most up to date list. Currently installed: {clc_enu_cfg3_v6_0_2, clc_enu_vadvde_v6_0_0, clc_mnc_cfg3_v6_0_6, clc_mnc_cfg3_v6_0_0, clc_mnc_mpthreevadml_v6_0_0, clc_mnc_mpthreevadml_v1_0_5, clc_mnc_vadvde_v6_0_0} ; default=
+clcSpec=clc_mnc_mpthreevadml_v6_0_0
+
+# input file
+#clcFilepath=
+
+# integer min=0 max=3 ; default=3
+ctxOptLevel=3
+
+# ';' separated list of input files
+# dictionaryFilepaths=
+
+# one of {auto, text, binary} ; default=auto
+dictionaryType=auto
+
+# one of {utf-8, utf-16}
+#dictionaryEncoding=
+
+# one of {fstdphost, fuzzymatchhost, matcherdp} ; default=fstdphost
+contextBufferSearchTreeType=fstdphost
+
+# integer min=0 max=3000
+#wordpenalty=
+
+# output file
+#logFilepath=
+

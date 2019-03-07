@@ -1,0 +1,1 @@
+MCCMNC="23415" Name="VodafoneUK" Brand="Vodafone" Target="UK" Show-SIM-SPN="False" Hierarchy="Operator" Priority="1100" Dependency="Region/VodafoneGroup" Storage="preset"

@@ -1,0 +1,5 @@
+#BNF+EMV2.1;
+!grammar phrasespotter_grammar;
+!start <PreDefine_Wakeup>;
+
+<PreDefine_Wakeup>:!tag(wuw, 小爱 同学) [<...>];

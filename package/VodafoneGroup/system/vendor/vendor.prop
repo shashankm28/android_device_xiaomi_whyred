@@ -1,0 +1,16 @@
+#
+#Copyright (c) 2016 Qualcomm Technologies, Inc.
+#All Rights Reserved.
+#Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# ADDITIONAL_FEATURE_PROPERTIES FOR VodafoneGroup SPEC
+#
+####################################################
+#Set the current spec as VodafoneGroup#
+persist.env.spec=VodafoneGroup
+
+#set system locale#
+persist.sys.locale=en-GB
+
+# Set Network mode option #
+ro.telephony.default_network=9

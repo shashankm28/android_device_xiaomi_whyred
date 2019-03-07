@@ -1,0 +1,7 @@
+#BNF+EMV2.1;
+!grammar phrasespotter_grammar;
+!start <UserDefine_Wakeup>;
+!slot <wuw_usd>;
+!slot <usw_wuw_usd>;
+
+<UserDefine_Wakeup>:<wuw_usd>|<usw_wuw_usd>;

@@ -1,0 +1,9 @@
+#
+# ADDITIONAL_FEATURE_PROPERTIES FOR EUCommon SPEC
+#
+####################################################
+#Set the current spec as EUCommon#
+persist.env.spec=EUCommon
+
+# Set Network mode option #
+ro.telephony.default_network=9

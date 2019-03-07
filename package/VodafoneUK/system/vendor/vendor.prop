@@ -1,0 +1,36 @@
+#Copyright (c) 2015-2016 Qualcomm Technologies, Inc.
+#All Rights Reserved.
+#Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# ADDITIONAL_FEATURE_PROPERTIES FOR VodafoneUK SPEC
+#
+####################################################
+#Set the current spec as VodafoneUK#
+persist.env.spec=VodafoneUK
+
+#set system locale#
+persist.sys.locale=en-GB
+
+#set system timezone#
+persist.sys.timezone=Europe/London
+
+#set product model#
+ro.product.model=VDF
+
+#Set the SIM model for DSDS. ssss - Single model, dsds - Dual model.#
+persist.radio.multisim.config=ssss
+
+# Set Network mode option #
+ro.telephony.default_network=9
+
+# Default for Settings.Global.DATA_ROAMING
+ro.com.android.dataroaming=false
+
+# Default for phone encryption
+ro.crypto.state=unencrypted
+
+#set cellbroadcast enable or disable#
+persist.env.cb.enable=false
+
+# Default for Settings.Global.MOBILE_DATA
+ro.com.android.mobiledata=true
